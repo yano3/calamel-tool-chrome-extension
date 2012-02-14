@@ -1,0 +1,10 @@
+{
+  "background_page": "background.html",
+  "description": "Tools for calamel.jp.",
+  "name": "Calamel Tools",
+  "omnibox": { "keyword" : "clm" },
+  "permissions": [ "tabs", "http://calamel.jp/" ],
+  "version": "0.1",
+  "minimum_chrome_version": "5"
+}
+

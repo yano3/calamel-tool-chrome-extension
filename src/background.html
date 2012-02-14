@@ -1,0 +1,22 @@
+<script>
+    chrome.omnibox.onInputStarted.addListener(
+    function() {
+        var description = 'Keyword Search: ';
+        chrome.omnibox.setDefaultSuggestion({
+            description: description
+        });
+    });
+
+    chrome.omnibox.onInputChanged.addListener(
+    function(text, suggest) {
+        //
+    });
+
+    chrome.omnibox.onInputEntered.addListener(
+    function(text) {
+        chrome.tabs.getSelected(null, function(tab) {
+            chrome.tabs.update(tab.id, {url: "http://calamel.jp/search/" + text});
+        });
+    });
+</script>
+
