@@ -17,6 +17,9 @@
         if (/^item:.+/.test(text)) {
             productId = text.match(/^item:(.+)/)[1];
             jumpToItem(productId);
+        } else if (/^shop:.+/.test(text)) {
+            accountId = text.match(/^shop:(.+)/)[1];
+            jumpToShop(accountId);
         } else {
             chrome.tabs.getSelected(null, function(tab) {
                 chrome.tabs.update(tab.id, {url: "http://calamel.jp/search/" + text});
@@ -27,6 +30,12 @@
     function jumpToItem(productId) {
         chrome.tabs.getSelected(null, function(tab) {
             chrome.tabs.update(tab.id, {url: "http://calamel.jp/go/item/" + productId});
+        });
+    }
+
+    function jumpToShop(accountId) {
+        chrome.tabs.getSelected(null, function(tab) {
+            chrome.tabs.update(tab.id, {url: "http://calamel.jp/go/shop/" + accountId});
         });
     }
 </script>
