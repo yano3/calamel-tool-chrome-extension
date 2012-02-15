@@ -21,21 +21,21 @@
             accountId = text.match(/^shop:(.+)/)[1];
             jumpToShop(accountId);
         } else {
-            chrome.tabs.getSelected(null, function(tab) {
-                chrome.tabs.update(tab.id, {url: "http://calamel.jp/search/" + text, selected: true});
-            });
+            openUrl("http://calamel.jp/search/" + text);
         }
     });
 
     function jumpToItem(productId) {
-        chrome.tabs.getSelected(null, function(tab) {
-            chrome.tabs.update(tab.id, {url: "http://calamel.jp/go/item/" + productId});
-        });
+        openUrl("http://calamel.jp/go/item/" + productId);
     }
 
     function jumpToShop(accountId) {
+        openUrl("http://calamel.jp/go/shop/" + accountId);
+    }
+
+    function openUrl(url) {
         chrome.tabs.getSelected(null, function(tab) {
-            chrome.tabs.update(tab.id, {url: "http://calamel.jp/go/shop/" + accountId});
+            chrome.tabs.update(tab.id, {url: url, selected: true});
         });
     }
 </script>
