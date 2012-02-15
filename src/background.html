@@ -22,7 +22,7 @@
             jumpToShop(accountId);
         } else {
             chrome.tabs.getSelected(null, function(tab) {
-                chrome.tabs.update(tab.id, {url: "http://calamel.jp/search/" + text});
+                chrome.tabs.update(tab.id, {url: "http://calamel.jp/search/" + text, selected: true});
             });
         }
     });
